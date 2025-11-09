@@ -1,0 +1,44 @@
+﻿@model App.BespokedBikes.Presentation.Products.Models.CreateProductViewModel
+@{
+    ViewBag.Title = "Create Product";
+}
+    <h2>Create Product</h2>
+
+    @using (Html.BeginForm("create", "products", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        <div class="form-group>">
+            <label class="control-label">Name</label>
+        @Html.TextBoxFor(p => p.Product.Name, new { @class = "form-control" })
+        </div>
+        <div class="form-group>">
+            <label class="control-label">Manufacturer</label>
+        @Html.TextBoxFor(p => p.Product.Manufacturer, new { @class = "form-control" })
+        </div>
+        <div class="form-group>">
+            <label class="control-label">Style</label>
+        @Html.TextBoxFor(p => p.Product.Style, new { @class = "form-control" })
+        </div>
+        <div class="form-group>">
+            <label class="control-label">Purchase Price</label>
+        @Html.TextBoxFor(p => p.Product.PurchasePrice, new { @class = "form-control" })
+        </div>
+        <div class="form-group>">
+            <label class="control-label">Sale Price</label>
+        @Html.TextBoxFor(p => p.Product.SalePrice, new { @class = "form-control" })
+        </div>
+        <div class="form-group>">
+            <label class="control-label">Quantity On Hand</label>
+        @Html.TextBoxFor(p => p.Product.QuantityOnHand, new { @class = "form-control" })
+        </div>
+        <div class="form-group>">
+            <label class="control-label">Commission Percentage</label>
+        @Html.TextBoxFor(p => p.Product.CommissionPercentage, new { @class = "form-control" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    
+    }
+
+

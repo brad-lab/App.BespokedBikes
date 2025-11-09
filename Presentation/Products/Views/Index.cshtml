@@ -1,0 +1,39 @@
+﻿@model IEnumerable<App.BespokedBikes.Application.Products.Queries.GetProductsList.ProductModel>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>Products</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Manufacturer</th>
+            <th>Style</th>
+            <th>Purchase Price</th>
+            <th>Sale Price</th>
+            <th>Quantity On Hand</th>
+            <th>Commission Percentage</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var products in Model)
+        {
+            <tr>
+                <td>@products.Id</td>
+                <td>@products.Name</td>
+                <td>@products.Manufacturer</td>
+                <td>@products.Style</td>
+                <td>$@products.PurchasePrice</td>
+                <td>$@products.SalePrice</td>
+                <td>@products.QuantityOnHand</td>
+                <td>@products.CommissionPercentage %</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="pull-right">
+    <a class="btn btn-primary" href="products/create">Create Product</a>
+</div>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<App.BespokedBikes.Application.Employees.Queries.GetEmployeesList.EmployeeModel>
+
+@{
+    ViewBag.Title = "Employees";
+}
+
+<h2>Salespeople</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Start Date</th>
+            <th>Termination Date</th>
+            <th>Manager</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Id</td>
+                <td>@employee.FirstName</td>
+                <td>@employee.LastName</td>
+                <td>@employee.Address</td>
+                <td>@employee.Phone</td>
+                <td>@employee.StartDate.ToString("d")</td>
+                <td>
+                    @(employee.TerminationDate != null 
+                        ? employee.TerminationDate.Value.ToString("d") 
+                        : "")
+                </td>
+                <td>@employee.Manager</td>                
+            </tr>
+        }
+    </tbody>
+</table>
+
