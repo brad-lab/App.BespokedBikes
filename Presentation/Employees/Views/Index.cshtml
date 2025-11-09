@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<App.BespokedBikes.Application.Employees.Queries.GetEmployeesList.EmployeeModel>
 
 @{
-    ViewBag.Title = "Employees";
+    ViewBag.Title = "Salespeople";
 }
 
-<h2>Salespeople</h2>
+<h2>Salesperson Staff</h2>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -16,6 +16,7 @@
             <th>Start Date</th>
             <th>Termination Date</th>
             <th>Manager</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -33,9 +34,16 @@
                         ? employee.TerminationDate.Value.ToString("d") 
                         : "")
                 </td>
-                <td>@employee.Manager</td>                
+                <td>@employee.Manager</td>
+                <td>
+                    <a class="btn btn-sm btn-secondary" href="@Url.Action("Edit", "Employees", new { id = employee.Id })">Edit</a>
+                </td>
             </tr>
         }
     </tbody>
 </table>
 
+<div class="pull-right">
+    <a class="btn btn-primary" href="@Url.Action("Create", "Employees")">Create Salesperson</a>
+    <a class="btn btn-primary" href="@Url.Action("Index", "Home")" style="margin-left:0.5rem;">Cancel</a>
+</div>

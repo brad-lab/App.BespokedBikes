@@ -37,7 +37,8 @@
         @Html.TextBoxFor(p => p.Product.CommissionPercentage, new { @class = "form-control" })
         </div>
 
-        <button type="submit" class="btn btn-primary">Create</button>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a class="btn btn-secondary" href="@Url.Action("Index", "Products")" style="margin-left:0.5rem;">Cancel</a>
     
     }
 

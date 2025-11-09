@@ -1,3 +1,4 @@
+using App.BespokedBikes.Application.Employees;
 using App.BespokedBikes.Application.Products;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.FileProviders;
@@ -22,6 +23,7 @@ class Program
 
         // inside builder.Services configuration
         builder.Services.AddScoped<IProductValidator, ProductValidator>();
+        builder.Services.AddScoped<IEmployeeValidator, EmployeeValidator>();
 
         builder.Services.Configure<RazorViewEngineOptions>(
             p => p.ViewLocationExpanders.Add(

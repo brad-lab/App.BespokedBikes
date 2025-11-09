@@ -29,7 +29,7 @@ namespace App.BespokedBikes.Presentation.Products
             _createcommand = command;
             _productValidator = productValidator;
         }
-
+        [Route("index")]
         public ViewResult Index()
         {
             var products = _query.Execute();

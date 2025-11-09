@@ -1,0 +1,44 @@
+﻿@using App.BespokedBikes.Presentation.Shared
+@model App.BespokedBikes.Presentation.Employees.Models.CreateEmployeeViewModel
+@{
+    ViewBag.Title = "Create Salesperson";
+}
+<h2>Create Salesperson</h2>
+
+@using (Html.BeginForm("create", "employees", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <label class="control-label">First Name</label>
+        @Html.TextBoxFor(p => p.Employee.FirstName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Last Name</label>
+        @Html.TextBoxFor(p => p.Employee.LastName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Address</label>
+        @Html.TextBoxFor(p => p.Employee.Address, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Phone</label>
+        @Html.TextBoxFor(p => p.Employee.Phone, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Start Date</label>
+        @Html.DateFor(p => p.Employee.StartDate, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Termination Date</label>
+        @Html.DateFor(p => p.Employee.TerminationDate, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a class="btn btn-secondary" href="@Url.Action("Index", "Employees")" style="margin-left:0.5rem;">Cancel</a>
+}
