@@ -1,0 +1,54 @@
+@using App.BespokedBikes.Presentation.Shared
+@model App.BespokedBikes.Presentation.Products.Models.UpdateProductViewModel
+
+@{
+    ViewBag.Title = "Edit Product";
+}
+
+<h2>Edit Product</h2>
+
+@using (Html.BeginForm("edit", "products", new { }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @Html.HiddenFor(m => m.Product.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Product.Name)
+        @Html.TextBoxFor(m => m.Product.Name, new { @class = "form-control" })    
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.Product.Manufacturer)
+    @Html.TextBoxFor(m => m.Product.Manufacturer, new { @class = "form-control" })    
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Product.Style)
+        @Html.TextBoxFor(m => m.Product.Style, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Product.PurchasePrice)
+    @Html.TextBoxFor(m => m.Product.PurchasePrice, new { @class = "form-control", type = "number", step = "0.01" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Product.SalePrice)
+    @Html.TextBoxFor(m => m.Product.SalePrice, new { @class = "form-control", type = "number", step = "0.01" })
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(m => m.Product.QuantityOnHand)
+    @Html.TextBoxFor(m => m.Product.QuantityOnHand, new { @class = "form-control", type = "number" })
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(m => m.Product.CommissionPercentage)
+    @Html.TextBoxFor(m => m.Product.CommissionPercentage, new { @class = "form-control", type = "number", step = "0.01" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a class="btn btn-secondary" href="@Url.Action("Index", "Products")" style="margin-left:0.5rem;">Cancel</a>
+}

@@ -16,20 +16,24 @@
             <th>Sale Price</th>
             <th>Quantity On Hand</th>
             <th>Commission Percentage</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var products in Model)
+        @foreach (var product in Model)
         {
             <tr>
-                <td>@products.Id</td>
-                <td>@products.Name</td>
-                <td>@products.Manufacturer</td>
-                <td>@products.Style</td>
-                <td>$@products.PurchasePrice</td>
-                <td>$@products.SalePrice</td>
-                <td>@products.QuantityOnHand</td>
-                <td>@products.CommissionPercentage %</td>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Manufacturer</td>
+                <td>@product.Style</td>
+                <td>$@product.PurchasePrice</td>
+                <td>$@product.SalePrice</td>
+                <td>@product.QuantityOnHand</td>
+                <td>@product.CommissionPercentage %</td>
+                <td>
+                    <a class="btn btn-sm btn-secondary" href="@Url.Action("Edit", "Products", new { id = product.Id })">Edit</a>
+                </td>
             </tr>
         }
     </tbody>

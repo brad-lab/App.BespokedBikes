@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace App.BespokedBikes.Application.Employees.Commands.UpdateEmployee.Factory
 {
-    public interface IEmployeeFactory
+    public interface IUpdateEmployeeFactory
     {
         Employee Update(int Id, string firstName, string lastName, string address, string phone, DateTime startDate, DateTime? terminationDate, string manager);
     }

@@ -3,7 +3,7 @@ using App.BespokedBikes.Domain.Employees;
 
 namespace App.BespokedBikes.Application.Employees.Commands.UpdateEmployee.Factory
 {
-    public class EmployeeFactory : IEmployeeFactory
+    public class UpdateEmployeeFactory : IUpdateEmployeeFactory
     {
         public Employee Update(int id, string firstName, string lastName, string address, string phone, DateTime startDate, DateTime? terminationDate, string manager)
         {
