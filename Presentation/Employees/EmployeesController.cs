@@ -110,12 +110,12 @@ namespace App.BespokedBikes.Presentation.Employees
                 return View(viewModel);
 
             // Optional: run application-level validation (adjust validator to ignore the current id if required)
-            var validation = await _employeeValidator.ValidateNoDuplicateAsync(viewModel.Employee.FirstName, viewModel.Employee.LastName);
-            if (!validation.IsValid)
-            {
-                ModelState.AddModelError(string.Empty, validation.ErrorMessage);
-                return View(viewModel);
-            }
+            //var validation = await _employeeValidator.ValidateNoDuplicateAsync(viewModel.Employee.FirstName, viewModel.Employee.LastName);
+            //if (!validation.IsValid)
+            //{
+            //    ModelState.AddModelError(string.Empty, validation.ErrorMessage);
+            //    return View(viewModel);
+            //}
 
             var updateModel = new UpdateEmployeeModel
             {

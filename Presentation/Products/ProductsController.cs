@@ -113,12 +113,12 @@ namespace App.BespokedBikes.Presentation.Products
                 return View(viewModel);
 
             // optional: application-level duplicate check (adjust if validator needs current id excluded)
-            var validation = await _productValidator.ValidateNoDuplicateAsync(viewModel.Product.Name, viewModel.Product.Manufacturer, viewModel.Product.Style);
-            if (!validation.IsValid)
-            {
-                ModelState.AddModelError(string.Empty, validation.ErrorMessage);
-                return View(viewModel);
-            }
+            //var validation = await _productValidator.ValidateNoDuplicateAsync(viewModel.Product.Name, viewModel.Product.Manufacturer, viewModel.Product.Style);
+            //if (!validation.IsValid)
+            //{
+            //    ModelState.AddModelError(string.Empty, validation.ErrorMessage);
+            //    return View(viewModel);
+            //}
 
             // map presentation model to application command model
             var appModel = new UpdateProductModel

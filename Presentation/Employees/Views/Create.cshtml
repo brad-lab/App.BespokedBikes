@@ -31,12 +31,17 @@
 
     <div class="form-group">
         <label class="control-label">Start Date</label>
-        @Html.DateFor(p => p.Employee.StartDate, new { @class = "form-control" })
+        @Html.TextBoxFor(p => p.Employee.StartDate, "{0:MM-dd-yyyy}", new { type = "date", @class = "form-control" })
     </div>
 
     <div class="form-group">
         <label class="control-label">Termination Date</label>
-        @Html.DateFor(p => p.Employee.TerminationDate, new { @class = "form-control" })
+        @Html.TextBoxFor(p => p.Employee.TerminationDate, "{0:MM-dd-yyyy}", new { type = "date", @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Manager</label>
+        @Html.TextBoxFor(p => p.Employee.Manager, new { @class = "form-control" })
     </div>
 
     <button type="submit" class="btn btn-primary">Create</button>
