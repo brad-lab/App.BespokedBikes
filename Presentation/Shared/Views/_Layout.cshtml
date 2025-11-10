@@ -36,5 +36,8 @@
             <p>&copy; @DateTime.Now.Year - cloned from open source <a href="http://www.matthewrenze.com" target="blank">Matthew Renze</a></p>
         </footer>
     </div>
+
+    @* render optional Scripts section defined in views (e.g. _ValidationScriptsPartial or view-specific scripts) *@
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
