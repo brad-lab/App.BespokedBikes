@@ -1,3 +1,4 @@
+
 # App.BespokedBikes
 Adapted and updated from a sample application for [Clean Architecture: Patterns, Practices, and Principles](https://pluralsight.pxf.io/clean-architecture) using Microsoft .NET 9.0.
 
@@ -7,13 +8,21 @@ quarterly bonus based on sales as an incentive.
 The application has the following functionality:
 
 -Display a list of salespersons
+
 -Update a salesperson
+
 -Display a list of products
+
 -Update a product
+
 -Display a list of customers
--Display a list of sales with option to filter by date range.
+
+-Display a list of sales with option to filter by date range
+
 -Create a sale
+
 -Display a quarterly salesperson commission report
+
 
 ## Technologies
 This demo application uses the following technologies:
