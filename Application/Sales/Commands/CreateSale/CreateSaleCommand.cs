@@ -28,7 +28,8 @@ namespace App.BespokedBikes.Application.Sales.Commands.CreateSale
 
         public void Execute(CreateSaleModel model)
         {
-            var date = _dateService.GetDate();
+            // prefer the user-provided date; fallback to date service when default(DateTime)
+            var date = model.Date != default(DateTime) ? model.Date : _dateService.GetDate();
 
             var customer = _database.Customers
                 .Single(p => p.Id == model.CustomerId);

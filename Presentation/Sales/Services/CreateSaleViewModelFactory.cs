@@ -61,7 +61,11 @@ namespace App.BespokedBikes.Presentation.Sales.Services
                 })
                 .ToList();
 
-            viewModel.Sale = new CreateSaleModel();
+            // default date to today so the form shows today's date
+            viewModel.Sale = new CreateSaleModel
+            {
+                Date = DateTime.Today
+            };
 
             return viewModel;
         }

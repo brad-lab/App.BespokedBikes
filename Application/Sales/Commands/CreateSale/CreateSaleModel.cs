@@ -12,6 +12,9 @@ namespace App.BespokedBikes.Application.Sales.Commands.CreateSale
 
         public int ProductId { get; set; }
 
-        public int Quantity { get; set; }        
+        public int Quantity { get; set; }
+
+        // new: allow user-specified date (if left default, command will use IDateService)
+        public DateTime Date { get; set; }        
     }
 }

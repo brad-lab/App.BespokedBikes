@@ -19,5 +19,8 @@ namespace App.BespokedBikes.Application.Sales.Queries.GetSalesList
         public int Quantity { get; set; }
 
         public decimal TotalPrice { get; set; }
+
+        // new read-only value transferred from application layer
+        public decimal SalesCommission { get; set; }
     }
 }

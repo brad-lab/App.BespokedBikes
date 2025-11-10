@@ -51,6 +51,17 @@ namespace App.BespokedBikes.Domain.Sales
             private set { _totalPrice = value; }
         }
 
+        // Read-only computed property for the sales commission.
+        // Uses the product's CommissionPercentage (int) as a percentage.
+        public decimal SalesCommission
+        {
+            get
+            {
+                if (Product == null) return 0m;
+                return TotalPrice * (Product.CommissionPercentage / 100m);
+            }
+        }
+
         private void UpdateTotalPrice()
         {
             _totalPrice = _unitPrice * _quantity;

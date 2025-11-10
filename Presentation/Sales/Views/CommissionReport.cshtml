@@ -1,0 +1,49 @@
+@model IEnumerable<App.BespokedBikes.Application.Sales.Queries.GetCommissionBySalesperson.CommissionBySalespersonModel>
+
+@{
+    ViewBag.Title = "Commission by Salesperson";
+    int selectedQuarter = ViewBag.SelectedQuarter ?? 1;
+    int selectedYear = ViewBag.SelectedYear ?? DateTime.Today.Year;
+}
+
+<h2>Commission by Salesperson</h2>
+
+<form method="get" class="form-inline mb-3">
+    <div class="form-group mr-2">
+        <label for="quarter" class="mr-1">Quarter</label>
+        <select id="quarter" name="quarter" class="form-control">
+            <option value="1" @(selectedQuarter == 1 ? "selected" : "")>Jan - Mar</option>
+            <option value="2" @(selectedQuarter == 2 ? "selected" : "")>Apr - Jun</option>
+            <option value="3" @(selectedQuarter == 3 ? "selected" : "")>Jul - Sep</option>
+            <option value="4" @(selectedQuarter == 4 ? "selected" : "")>Oct - Dec</option>
+        </select>
+    </div>
+    <div class="form-group mr-2">
+        <label for="year" class="mr-1">Year</label>
+        <input type="number" id="year" name="year" min="2000" max="2100" class="form-control" value="@selectedYear" />
+    </div>
+    <button type="submit" class="btn btn-primary">Run</button>
+    <a class="btn btn-primary" href="@Url.Action("Report", "Sales")" style="margin-left:0.5rem;">Reset</a>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Salesperson</th>
+            <th>Sales Count</th>
+            <th>Total Sales</th>
+            <th>Total Commission</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in Model)
+        {
+            <tr>
+                <td>@row.EmployeeName</td>
+                <td>@row.SalesCount</td>
+                <td>@row.TotalSales.ToString("C")</td>
+                <td>@row.TotalCommission.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -2,20 +2,37 @@
 
 @{
     ViewBag.Title = "Sales";
+    string start = ViewBag.StartDate as string;
+    string end = ViewBag.EndDate as string;
 }
 
 <h2>Sales</h2>
+
+<form method="get" class="form-inline mb-3">
+    <div class="form-group mr-2">
+        <label for="startDate" class="mr-1">Start</label>
+        <input type="date" id="startDate" name="startDate" class="form-control" value="@start" />
+    </div>
+    <div class="form-group mr-2">
+        <label for="endDate" class="mr-1">End</label>
+        <input type="date" id="endDate" name="endDate" class="form-control" value="@end" />
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+    <a class="btn btn-secondary ml-2" href="sales">Clear</a>
+</form>
+
 <table class="table table-striped">
     <thead>
         <tr>
             <th>ID</th>
             <th>Date</th>
             <th>Customer</th>
-            <th>Employee</th>
+            <th>Salesperson</th>
             <th>Product</th>
             <th>Unit Price</th>
             <th>Quantity</th>
             <th>Total Price</th>
+            <th>Sales Commission</th>
         </tr>
     </thead>
     <tbody>
@@ -27,14 +44,17 @@
                 <td>@sale.CustomerName</td>
                 <td>@sale.EmployeeName</td>
                 <td>@sale.ProductName</td>
-                <td>$@sale.UnitPrice</td>
+                <td>@sale.UnitPrice.ToString("C")</td>
                 <td>@sale.Quantity</td>
-                <td>$@sale.TotalPrice</td>
+                <td>@sale.TotalPrice.ToString("C")</td>
+                <td>@sale.SalesCommission.ToString("C")</td>
             </tr>
         }
     </tbody>
 </table>
+
 <div class="pull-right">
-    <a class="btn btn-primary" href="sales/create">Create Sale</a>
+    <a class="btn btn-primary" href="@Url.Action("Create", "Sales")">Create Sale</a>
+    <a class="btn btn-primary" href="@Url.Action("Index", "Home")" style="margin-left:0.5rem;">Cancel</a>
 </div>
 
